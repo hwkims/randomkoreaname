@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Korean Name Generator</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=AppleSDGothicNeo">
+  <style>
+    body {
+      font-family: AppleSDGothicNeo;
+      background-color: #f2f2f2;
+    }
+    .container {
+      max-width: 400px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #3e8e41;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Random Korean Name Generator</h1>
+    <button class="button" onclick="generateName()">이름 생성</button>
+    <p id="name"></p>
+    <p id="meaning"></p>
+  </div>
+
+  <script>
+    const lastName = [
+      "김", "이", "박", "최", "정", "강", "조", "윤", "장", "임",
+      "한", "오", "서", "신", "권", "황", "안", "송", "류", "현",
+      "곽", "문", "백", "지", "유", "변", "전", "하", "서", "최",
+      "선", "우", "주", "천", "명", "박", "노", "도", "소", "고",
+      "양", "배", "민", "류", "탁", "문", "이", "강", "신", "조"
+    ];
+    const firstName1 = [
+      "민", "지", "현", "수", "영", "준", "성", "우", "재", "훈",
+      "하", "민", "서", "윤", "지", "현", "수", "영", "준", "성",
+      "우", "재", "훈", "하", "민", "서", "윤", "지", "현", "수"
+    ];
+    const firstName2 = [
+      "동", "하", "민", "서", "윤", "지", "현", "수", "영", "준",
+      "성", "우", "재", "훈", "하", "민", "서", "윤", "지", "현"
+    ];
+    const nameMeaning = {
+      "민": "intelligent",
+      "지": "wisdom",
+      "현": "virtuous",
+      "수": "talented",
+      "영": "brave",
+      "준": "talented",
+      "성": " accomplished",
+      "우": "rain",
+      "재": "wealthy",
+      "훈": "teach",
+      "하": "summer",
+      "서": "west",
+      "윤": "soft",
+      "동": "east"
+    };
+
+    function generateName() {
+      const randomLastName = lastName[Math.floor(Math.random() * lastName.length)];
+      const randomFirstName1 = firstName1[Math.floor(Math.random() * firstName1.length)];
+      const randomFirstName2 = firstName2[Math.floor(Math.random() * firstName2.length)];
+      const name = `${randomLastName}${randomFirstName1}${randomFirstName2}`;
+      const meaning = `(${nameMeaning[randomFirstName1]} and ${nameMeaning[randomFirstName2]})`;
+      document.getElementById("name").innerHTML = name;
+      document.getElementById("meaning").innerHTML = meaning;
+    }
+  </script>
+</body>
+</html>
